@@ -1,5 +1,6 @@
-//#region DOM
+//#region DOM - Variables
 let form = document.querySelector("#form");
+let movieList = document.querySelector('#movie-list');
 let id = document.querySelector("#identificacion");
 let title = document.querySelector("#titulo");
 let director = document.querySelector("#director");
@@ -7,6 +8,7 @@ let country = document.querySelector("#pais");
 let comboGenre = document.querySelector("#selectGenero");
 let qualification = document.querySelector("#calificacion");
 let year = document.querySelector("#año");
+let arrayMovie = [];
 //#endregion
 
 //#region Functions Validations
@@ -81,14 +83,13 @@ const checkInput = () => {
 
   //Validate year
   if (_year === "") return setError(year, "Empty Field");
-  !/^([0-9]){4}$/.test(_year) ? setError(year,'Year not valid, must be 4 digits') : setSuccess(year);
+  !/^([0-9]){4}$/.test(_year)
+    ? setError(year, "Year not valid, must be 4 digits")
+    : setSuccess(year);
 
+    addMovie();
+    saveStorage();
 };
-
-
-/* const valideteTextString = (property) => {
-  if (property === "") return setError(property, "Empty Field");
-}; */
 
 const setError = (input, message) => {
   const formGroup = input.parentElement;
@@ -104,10 +105,79 @@ const setSuccess = (input) => {
 };
 //#endregion
 
+
+//#region FunctionStorage
+const addMovie = () => {
+  let movie = {
+    id: id.value,
+    title: title.value,
+    director: director.value,
+    country: country.value,
+    genre: comboGenre.options[comboGenre.selectedIndex].value,
+    qualification: qualification.value,
+    year: year.value,
+  };
+
+  arrayMovie.push(movie);
+  /* console.log(movie);
+  console.log(arrayMovie); */
+  return movie;
+  
+};
+
+const saveStorage = () => {
+  localStorage.setItem('Movie',JSON.stringify(arrayMovie));
+  readStorage();
+}
+
+const readStorage = () => {
+   movieList.innerHTML = "";
+   arrayMovie = JSON.parse(localStorage.getItem('Movie'));
+
+   arrayMovie === null
+   ? (arrayMovie = []) 
+   : arrayMovie.forEach(element => {
+     movieList.innerHTML += `
+                <div class="col-sm-6">
+                    <div class="card" style="background: #f6f6f5;">
+                        <div class="card-body">
+                          <div class="row head">
+                            <h4 class="card-title">${element.title}</h4>
+                            <h5 class="text-muted">(${element.year})</h5>
+                          </div>
+                          <div class="row body">
+                            <small class="text-muted">Id: ${element.id}</small>
+                            <small>${element.qualification}</small>
+                            <p class="card-text mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                          </div>
+                          <div class="row foot">
+                            <small class="text-muted">Director:</small>
+                            <p>${element.director}</p>
+                            <small class="text-muted dos">Genre:</small>
+                            <p>${element.genre}</p>
+                            <small class="text-muted">Country:</small>
+                            <p>${element.country}</p>
+                          </div>
+                          <div class="buttons">
+                            <input type="submit" value="Edit" class="btn btn-info">
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                          </div>
+                        </div>
+                    </div>
+                </div>  
+     `
+   });
+}
+//#endregion
+
+
 //#region DOM - Events
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  checkInput();
+ checkInput();
+  
+  
 });
+document.addEventListener("DOMContentLoaded", readStorage);
 //#endregion
