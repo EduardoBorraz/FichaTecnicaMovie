@@ -1,95 +1,112 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
-.container .card{
-    box-shadow: -6px -6px 20px rgba(255, 255, 255, 1),
-                 6px  6px  20px rgba(0, 0, 0, 0.1);
-    
+.container .card {
+  box-shadow: -6px -6px 20px rgba(255, 255, 255, 1),
+    6px 6px 20px rgba(0, 0, 0, 0.1);
 }
-.container .hover{
-    background: #f6f6f5;
+.container .hover {
+  background: #f6f6f5;
 }
 
-.text-muted{
-    display: initial;
-    margin-right: 2em;
+.text-muted {
+  display: initial;
+  margin-right: 2em;
 }
-h5{
-    text-align: center;
+h5 {
+  text-align: center;
 }
-h4{
-    color: #2979b8;
+h4 {
+  color: #2979b8;
 }
-.foot p{
-    font-size: 0.8em;
-    margin-inline-start: -1.2em;
-    color: #2979b8;
+.foot p {
+  font-size: 0.8em;
+  margin-inline-start: -1.2em;
+  color: #2979b8;
 }
-.row .head{
-    margin-left: 0.1em;
+.row .head {
+  margin-left: 0.1em;
 }
-.head .text-muted{
-    margin-left: 0.2em;
-    font-size: 1.4em;
+.head .text-muted {
+  margin-left: 0.2em;
+  font-size: 1.4em;
 }
-.row .body{
-    margin-left: 0.1em;
+.row .body {
+  margin-left: 0.1em;
 }
-.body .text-muted{
-    margin-left: 0.2em;
+.body .text-muted {
+  margin-left: 0.2em;
 }
-.row .foot{
-    margin-left: 0.1em;
-    margin-top: 8px;
+.row .foot {
+  margin-left: 0.1em;
+  margin-top: 8px;
 }
-.foot .dos{
-    margin-left: 3em;
+.foot .dos {
+  margin-left: 3em;
 }
-.buttons{
-    margin-top: 20px;
-    text-align: center;
+.row .foot2 {
+  margin-left: 0.1em;
+  margin-top: 8px;
 }
-.buttons .btn-danger{
-    margin-right: 30px;
+.foot2 p {
+  font-size: 0.8em;
+  margin-inline-start: -1.2em;
+  color: #2979b8;
 }
-.form-group{
-    margin-bottom: 4px;
-	padding-bottom: 8px;
-    position: relative;
+.buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+.buttons .btn-danger {
+  margin-right: 30px;
+}
+.form-group {
+  margin-bottom: 4px;
+  padding-bottom: 8px;
+  position: relative;
 }
 .form-group.success input {
-	border-color: #2ecc71;
+  border-color: #2ecc71;
 }
 .form-group.error input {
-	border-color: #e74c3c;
+  border-color: #e74c3c;
 }
-.form-group i{
-    position: absolute;
-    visibility: hidden;
-	top: 15px;
-	right: 30px;
+.form-group i {
+  position: absolute;
+  visibility: hidden;
+  top: 15px;
+  right: 30px;
 }
-.form-group small{
-    position: absolute;
-    color: #e74c3c;
-    top: 50px;
-	bottom: 0;
-    left: 0;
-    visibility: hidden;
+.form-group small {
+  position: absolute;
+  color: #e74c3c;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  font-size: 14px;
+  visibility: hidden;
 }
 .form-group.error small {
-	visibility: visible;
+  visibility: visible;
 }
 .form-group.success i.fa-check-circle {
-	color: #2ecc71;
-	visibility: visible;
+  color: #2ecc71;
+  visibility: visible;
 }
 
 .form-group.error i.fa-exclamation-circle {
-	color: #e74c3c;
-	visibility: visible;
+  color: #e74c3c;
+  visibility: visible;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.fa-star{
+    font-size: 0.9em;
 }
