@@ -193,7 +193,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   checkInput();
-  form.restet();
+  form.reset();
 
 });
 
